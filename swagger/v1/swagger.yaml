@@ -4,6 +4,85 @@ info:
   title: API V1
   version: v1
 paths:
+  "/users/{user_id}/comments":
+    parameters:
+    - name: user_id
+      in: path
+      type: string
+      required: true
+    get:
+      summary: list comments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create comment
+      consumes:
+      - application/json
+      parameters:
+      - name: comment
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            content:
+              type: string
+            post:
+              properties:
+                id:
+                  type: string
+      responses:
+        '201':
+          description: successful
+  "/comments":
+    get:
+      summary: list comments
+      responses:
+        '200':
+          description: successful
+  "/comments/{id}":
+    parameters:
+    - name: id
+      in: path
+      type: string
+      required: true
+    get:
+      summary: show comment
+      responses:
+        '200':
+          description: successful
+  "/posts/{post_id}/comments":
+    parameters:
+    - name: post_id
+      in: path
+      type: string
+      required: true
+    get:
+      summary: list comments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create comment
+      consumes:
+      - application/json
+      parameters:
+      - name: comment
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            content:
+              type: string
+            user:
+              properties:
+                id:
+                  type: string
+      responses:
+        '200':
+          description: successful
   "/posts":
     get:
       summary: list posts
