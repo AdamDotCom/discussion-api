@@ -14,6 +14,9 @@ gem "puma", ">= 5.0"
 # Responder modules (json, xml, html) to dry up a Rails app
 gem "responders"
 
+gem "rspec-rails"
+gem "rswag"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
