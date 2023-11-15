@@ -1,4 +1,5 @@
 require 'swagger_helper'
+require 'faker'
 
 RSpec.describe 'users', type: :request do
 
@@ -29,7 +30,7 @@ RSpec.describe 'users', type: :request do
       }
 
       response(201, 'successful') do
-        let(:user) { { first_name: 'first', last_name: 'last' } }
+        let(:user) { { first_name: Faker::Name.first_name, last_name: Faker::Name.last_name } }
 
         after do |example|
           example.metadata[:response][:content] = {
