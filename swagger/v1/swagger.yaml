@@ -147,6 +147,10 @@ paths:
         '201':
           description: successful
 servers:
+- url: https://top-hat-discussion-api.onrender.com/
+  variables:
+    defaultHost:
+      default: top-hat-discussion-api.onrender.com/
 - url: http://127.0.0.1:3000/
   variables:
     defaultHost:

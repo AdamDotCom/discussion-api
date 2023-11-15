@@ -24,6 +24,14 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
+          url: 'https://top-hat-discussion-api.onrender.com/',
+          variables: {
+            defaultHost: {
+              default: 'top-hat-discussion-api.onrender.com/'
+            }
+          }
+        },
+        {
           url: 'http://127.0.0.1:3000/',
           variables: {
             defaultHost: {

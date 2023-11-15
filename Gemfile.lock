@@ -134,6 +134,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    pg (1.5.4)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -217,9 +218,6 @@ GEM
       actionpack (>= 3.1, < 7.2)
       railties (>= 3.1, < 7.2)
     ruby2_keywords (0.0.5)
-    sqlite3 (1.6.8)
-      mini_portile2 (~> 2.8.0)
-    sqlite3 (1.6.8-x86_64-linux)
     stringio (3.0.9)
     thor (1.3.0)
     timeout (0.4.1)
@@ -239,12 +237,12 @@ DEPENDENCIES
   bootsnap
   debug
   faker
+  pg
   puma (>= 5.0)
   rails (~> 7.1.2)
   responders
   rspec-rails
   rswag
-  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
