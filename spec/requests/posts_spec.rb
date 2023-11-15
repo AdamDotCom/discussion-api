@@ -70,26 +70,4 @@ RSpec.describe 'posts', type: :request do
       end
     end
   end
-
-  path '/posts/{id}/comments' do
-    parameter name: 'id', in: :path, type: :string
-
-    get('show post comments') do
-      response(200, 'successful') do
-        user = User.create({ first_name: Faker::Name.first_name, last_name: Faker::Name.last_name })
-        post = Post.create({ title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, user: user })
-        Comment.create({ post: post, content: Faker::Lorem.paragraph, user: user })
-        let(:id) { post.id }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-  end
 end

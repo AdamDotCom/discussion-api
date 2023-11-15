@@ -16,8 +16,4 @@ class PostsController < ApplicationController
   def show
     respond_with(Post.find(params[:id]))
   end
-
-  def comments
-    respond_with(Post.find(params[:id]).comments)
-  end
 end
