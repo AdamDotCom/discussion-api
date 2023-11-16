@@ -116,31 +116,13 @@ Given the problem definition above, the following should meet the requirements f
     Request:
     ```
     curl -X 'GET' \
-      'https://top-hat-discussion-api.onrender.com/comments' \
+      'https://top-hat-discussion-api.onrender.com/posts/2/comments' \
       -H 'accept: application/json'
     ```
     
     Response:
     ```
     [
-      {
-        "id": 1,
-        "user_id": 2,
-        "post_id": 1,
-        "content": "Turn it inside out, add your detergent and use the 'Delicate' or 'Gentle' wash setting with cold water.",
-        "comment_id": null,
-        "created_at": "2023-11-15T19:52:01.097Z",
-        "updated_at": "2023-11-15T19:52:01.097Z"
-      },
-      {
-        "id": 2,
-        "user_id": 3,
-        "post_id": 1,
-        "content": "Mix a 50/50 vinegar and water solution in a bowl and use a microfiber cloth to apply. Rub in a circular motion.",
-        "comment_id": 1,
-        "created_at": "2023-11-15T19:52:01.212Z",
-        "updated_at": "2023-11-15T19:52:01.212Z"
-      },
       {
         "id": 3,
         "user_id": 2,
