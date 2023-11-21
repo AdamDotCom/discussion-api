@@ -139,9 +139,20 @@ Given the problem definition above, the following should meet the requirements f
 
 - clone this repository
 - [install rails](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- setup the database `rails db:setup` (creates, migrates, and seeds)
 - run `rails server`
 - visit your development server http://127.0.0.1:3000/api-docs/
 
+### Run the tests
+- run the specification tests `rake spec`
+```
+> rake spec
+...........
+
+Finished in 0.0884 seconds (files took 1.61 seconds to load)
+11 examples, 0 failures
+
+```
 ### Live
 
 This application is hosted online at https://top-hat-discussion-api.onrender.com/api-docs/
