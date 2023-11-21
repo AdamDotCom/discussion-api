@@ -26,7 +26,13 @@ RSpec.describe 'comments', type: :request do
             }
           }
         end
-        run_test!
+
+        run_test! do |response|
+          result = JSON.parse(response.body)
+
+          expect(result.length).to eq(1)
+          expect(result.first.fetch('user_id')).to eq(user.id)
+        end
       end
     end
 
@@ -66,6 +72,10 @@ RSpec.describe 'comments', type: :request do
 
     get('list comments') do
       response(200, 'successful') do
+        comment_ids = (1..3).map do
+          _user, _post, comment = create_test_data()
+          comment.id
+        end
 
         after do |example|
           example.metadata[:response][:content] = {
@@ -74,7 +84,12 @@ RSpec.describe 'comments', type: :request do
             }
           }
         end
-        run_test!
+
+        run_test! do |response|
+          result = JSON.parse(response.body)
+
+          expect(result.length).to be >= comment_ids.length
+        end
       end
     end
   end
@@ -116,7 +131,13 @@ RSpec.describe 'comments', type: :request do
             }
           }
         end
-        run_test!
+
+        run_test! do |response|
+          result = JSON.parse(response.body)
+
+          expect(result.length).to eq(1)
+          expect(result.first.fetch('post_id')).to eq(post.id)
+        end
       end
     end
 

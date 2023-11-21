@@ -1,6 +1,18 @@
 class CommentsController < ApplicationController
   def index
-    respond_with(Comment.all)
+    @post = Post.find(params[:post_id]) if params.key?(:post_id)
+    @user = User.find(params[:user_id]) if params.key?(:user_id)
+
+    @comments = if @post
+                  @post.comments
+                elsif @user
+                  Comment.where({ user: @user })
+                else
+                  Comment.all
+                end
+
+
+    respond_with(@comments)
   end
 
   def create
