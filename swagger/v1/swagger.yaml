@@ -41,6 +41,26 @@ paths:
       responses:
         '200':
           description: successful
+    post:
+      summary: create comment
+      consumes:
+      - application/json
+      parameters:
+      - name: comment
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            user_id:
+              type: string
+            comment_id:
+              type: string
+            content:
+              type: string
+      responses:
+        '201':
+          description: successful
   "/comments/{id}":
     parameters:
     - name: id

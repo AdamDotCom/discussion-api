@@ -92,6 +92,42 @@ RSpec.describe 'comments', type: :request do
         end
       end
     end
+
+    post('create comment') do
+      consumes 'application/json'
+      parameter name: :comment, in: :body, required: true, schema: {
+        type: :object,
+        properties: {
+          user_id: { type: :string },
+          comment_id: { type: :string },
+          content: { type: :string }
+        },
+      }
+
+      response(201, 'successful') do
+        user, _post, comment = create_test_data()
+
+        let(:comment_content) { Faker::Lorem.sentence }
+        let(:comment) { { user_id: user.id, comment_id: comment.id, content: comment_content } }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+
+        run_test! do |response|
+          result = JSON.parse(response.body)
+
+          expect(result.dig('user_id')).to eq(user.id)
+          expect(result.dig('comment_id')).to eq(comment.id)
+          expect(result.dig('id')).not_to eq(comment.id)
+          expect(result.dig('content')).to eq(comment_content)
+        end
+      end
+    end
   end
 
   path '/comments/{id}' do

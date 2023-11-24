@@ -21,7 +21,11 @@ class CommentsController < ApplicationController
     user = params.fetch(:user, {}).permit!
 
     @user = User.find(params[:user_id] || user[:id])
-    @post = Post.find(params[:post_id] || post[:id])
+    @post = if comment[:comment_id]
+              Comment.find(comment[:comment_id]).post
+            else
+              Post.find(params[:post_id] || post[:id])
+            end
 
     @comment = @post.comments.create(comment.merge({ user: @user }))
 
