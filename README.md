@@ -1,13 +1,13 @@
 # README
 
-Top Hat Backend Technical Assessment
+Backend Technical Assessment
 
 ## Problem Description
 
 ```
 We will build a simple Reddit-style discussion API.
 
-At Top Hat, We have several question types for our professors to support their in-class activities.
+We have several question types for our professors to support their in-class activities.
 We would like to add another question type called a discussion question. As a MVP we would
 like to develop a functionality for the professor to start a discussion and students can respond to
 a question with their comments. Students can also respond to each other’s comments.
