@@ -155,7 +155,5 @@ Finished in 0.0884 seconds (files took 1.61 seconds to load)
 ```
 ### Live
 
-This application is hosted online at https://top-hat-discussion-api.onrender.com/api-docs/
-
 Screen Capture:
 ![Screen Capture](https://github.com/AdamDotCom/top-hat-discussion-api/blob/main/Swagger-UI.png?raw=true)
